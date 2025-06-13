@@ -1,11 +1,433 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Front-End Developer | Your Name</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/output.css">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Alpine JS -->
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+
+    <style>
+        /* Navbar styles */
+        .nav-link {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #2563EB, #1E40AF);
+            transition: width 0.3s ease, left 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+            left: 0;
+        }
+
+        .nav-link.active::after {
+            width: 100%;
+        }
+
+        .mobile-menu-item {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .mobile-menu-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: rgba(37, 99, 235, 0.1);
+            transition: left 0.3s ease;
+        }
+
+        .mobile-menu-item:hover::before {
+            left: 0;
+        }
+
+        @keyframes pulse-glow {
+            0% {
+                box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.7);
+            }
+
+            70% {
+                box-shadow: 0 0 0 10px rgba(37, 99, 235, 0);
+            }
+
+            100% {
+                box-shadow: 0 0 0 0 rgba(37, 99, 235, 0);
+            }
+        }
+
+        .cta-button {
+            animation: pulse-glow 2s infinite;
+        }
+
+        .cta-button:hover {
+            animation: none;
+        }
+
+        /* Hero section styles */
+        .hero-gradient {
+            background: linear-gradient(135deg, #000000 0%, #111827 50%, #1E3A8A 100%);
+        }
+
+        .tech-stack {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-top: 1.5rem;
+        }
+
+        .tech-item {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(5px);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(37, 99, 235, 0.2);
+        }
+
+        .tech-item:hover {
+            background: rgba(37, 99, 235, 0.3);
+            transform: translateY(-2px);
+            border-color: rgba(37, 99, 235, 0.5);
+        }
+
+        .profile-image {
+            border: 3px solid rgba(37, 99, 235, 0.5);
+            box-shadow: 0 10px 30px -10px rgba(37, 99, 235, 0.7);
+        }
+
+        .typewriter-cursor {
+            animation: blink 1s step-end infinite;
+        }
+
+        @keyframes blink {
+
+            from,
+            to {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0;
+            }
+        }
+
+        /* Dark theme adjustments */
+        body {
+            background-color: #111827;
+            color: #E5E7EB;
+        }
+
+        /* Glowing border effect */
+        .glow-border {
+            position: relative;
+        }
+
+        .glow-border::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+            padding: 2px;
+            background: linear-gradient(45deg, #2563EB, #1E40AF);
+            -webkit-mask:
+                linear-gradient(#fff 0 0) content-box,
+                linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .glow-border:hover::before {
+            opacity: 1;
+        }
+    </style>
 </head>
-<body>
-    
+
+<body class="font-sans bg-gray-900">
+    <!-- Navbar -->
+    <nav x-data="{ open: false, scrolled: false, activeSection: 'home' }" @scroll.window="handleScroll"
+        @click.away="open = false" class="fixed w-full z-50 transition-all duration-500"
+        :class="{'bg-gray-900/80 backdrop-blur-sm shadow-xl': scrolled || open, 'bg-transparent': !scrolled && !open}">
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="#home" class="text-xl font-bold text-white tracking-tight flex items-center"
+                        @click="activeSection = 'home'">
+                        <span
+                            class="bg-gradient-to-r from-blue-600 to-blue-800 text-transparent bg-clip-text">Indra</span>
+                        <span class="ml-2 text-blue-400 animate-pulse">|</span>
+                    </a>
+                </div>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-1">
+                    <a href="#home" class="nav-link px-4 py-2 text-sm font-medium transition-all duration-300"
+                        :class="{'text-white': activeSection === 'home', 'text-gray-300 hover:text-white': activeSection !== 'home'}"
+                        @click="activeSection = 'home'">
+                        <i class="fas fa-home mr-2"></i>Home
+                    </a>
+                    <a href="#about" class="nav-link px-4 py-2 text-sm font-medium transition-all duration-300"
+                        :class="{'text-white': activeSection === 'about', 'text-gray-300 hover:text-white': activeSection !== 'about'}"
+                        @click="activeSection = 'about'">
+                        <i class="fas fa-user mr-2"></i>About
+                    </a>
+                    <a href="#projects" class="nav-link px-4 py-2 text-sm font-medium transition-all duration-300"
+                        :class="{'text-white': activeSection === 'projects', 'text-gray-300 hover:text-white': activeSection !== 'projects'}"
+                        @click="activeSection = 'projects'">
+                        <i class="fas fa-code mr-2"></i>Projects
+                    </a>
+                    <a href="#skills" class="nav-link px-4 py-2 text-sm font-medium transition-all duration-300"
+                        :class="{'text-white': activeSection === 'skills', 'text-gray-300 hover:text-white': activeSection !== 'skills'}"
+                        @click="activeSection = 'skills'">
+                        <i class="fas fa-cogs mr-2"></i>Skills
+                    </a>
+                    <a href="#contact" class="nav-link px-4 py-2 text-sm font-medium transition-all duration-300"
+                        :class="{'text-white': activeSection === 'contact', 'text-gray-300 hover:text-white': activeSection !== 'contact'}"
+                        @click="activeSection = 'contact'">
+                        <i class="fas fa-envelope mr-2"></i>Contact
+                    </a>
+
+                    <!-- CTA Button -->
+                    <a href="#contact"
+                        class="cta-button ml-4 px-6 py-2 rounded-full bg-gradient-to-r from-blue-700 to-blue-900 text-white text-sm font-medium hover:from-blue-600 hover:to-blue-800 transition-all duration-300 transform hover:scale-105 flex items-center glow-border"
+                        @click="activeSection = 'contact'">
+                        <i class="fas fa-paper-plane mr-2"></i>Let's Talk
+                    </a>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center">
+                    <button @click="open = !open"
+                        class="inline-flex items-center justify-center p-2 rounded-md text-gray-300 hover:text-white focus:outline-none transition-all duration-300"
+                        :class="{'text-white': open}">
+                        <svg class="h-6 w-6 transition-transform duration-300" :class="{'rotate-90': open}"
+                            xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div x-show="open" x-transition:enter="transition ease-out duration-300"
+            x-transition:enter-start="opacity-0 scale-95" x-transition:enter-end="opacity-100 scale-100"
+            x-transition:leave="transition ease-in duration-200" x-transition:leave-start="opacity-100 scale-100"
+            x-transition:leave-end="opacity-0 scale-95"
+            class="md:hidden bg-gray-900/95 backdrop-blur-sm shadow-lg rounded-b-lg overflow-hidden">
+            <div class="px-2 pt-2 pb-4 space-y-1 sm:px-3">
+                <a href="#home"
+                    class="mobile-menu-item block px-4 py-3 rounded-md text-base font-medium text-white transition-all duration-300"
+                    :class="{'bg-gray-800': activeSection === 'home'}" @click="activeSection = 'home'; open = false">
+                    <i class="fas fa-home mr-3"></i>Home
+                </a>
+                <a href="#about"
+                    class="mobile-menu-item block px-4 py-3 rounded-md text-base font-medium text-white transition-all duration-300"
+                    :class="{'bg-gray-800': activeSection === 'about'}" @click="activeSection = 'about'; open = false">
+                    <i class="fas fa-user mr-3"></i>About
+                </a>
+                <a href="#projects"
+                    class="mobile-menu-item block px-4 py-3 rounded-md text-base font-medium text-white transition-all duration-300"
+                    :class="{'bg-gray-800': activeSection === 'projects'}"
+                    @click="activeSection = 'projects'; open = false">
+                    <i class="fas fa-code mr-3"></i>Projects
+                </a>
+                <a href="#skills"
+                    class="mobile-menu-item block px-4 py-3 rounded-md text-base font-medium text-white transition-all duration-300"
+                    :class="{'bg-gray-800': activeSection === 'skills'}"
+                    @click="activeSection = 'skills'; open = false">
+                    <i class="fas fa-cogs mr-3"></i>Skills
+                </a>
+                <a href="#contact"
+                    class="mobile-menu-item block px-4 py-3 rounded-md text-base font-medium text-white transition-all duration-300"
+                    :class="{'bg-gray-800': activeSection === 'contact'}"
+                    @click="activeSection = 'contact'; open = false">
+                    <i class="fas fa-envelope mr-3"></i>Contact
+                </a>
+
+                <!-- Mobile CTA Button -->
+                <div class="px-4 pt-2">
+                    <a href="#contact"
+                        class="cta-button block text-center px-6 py-3 rounded-full bg-gradient-to-r from-blue-700 to-blue-900 text-white font-medium hover:from-blue-600 hover:to-blue-800 transition-all duration-300 glow-border"
+                        @click="activeSection = 'contact'; open = false">
+                        <i class="fas fa-paper-plane mr-2"></i>Let's Talk
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative hero-gradient text-white pt-20 pb-16 md:pt-40 md:py-32 min-h-screen">
+        <div class="absolute inset-0 opacity-10">
+            <div
+                class="pattern-dots pattern-blue-500 pattern-bg-transparent pattern-size-4 pattern-opacity-20 w-full h-full">
+            </div>
+        </div>
+
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+            <!-- Mengubah flex-col-reverse menjadi flex-col untuk mobile -->
+            <div class="flex flex-col md:flex-row items-center">
+                <!-- Image/Illustration - Sekarang benar-benar di atas untuk mobile -->
+                <div class="w-full md:w-1/2 flex justify-center px-4 mb-8 md:mb-0 order-1 md:order-2">
+                    <div class="relative group w-full max-w-md">
+                        <!-- Background Effect -->
+                        <div
+                            class="absolute -inset-3 bg-gradient-to-r from-blue-600 to-blue-800 rounded-lg opacity-20 blur-xl group-hover:opacity-30 transition-all duration-500">
+                        </div>
+
+                        <!-- Main Image Container -->
+                        <div
+                            class="relative overflow-hidden rounded-lg shadow-xl profile-image transform transition-all duration-700 group-hover:-translate-y-2">
+                            <img src="assets/image/hero/hero.png" alt="Profile"
+                                class="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-102" />
+
+                            <!-- Hover Overlay -->
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 flex items-end transition-opacity duration-500 p-6">
+                                <div
+                                    class="text-white translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                                    <h3 class="text-xl font-bold">Front-End Developer</h3>
+                                    <p class="text-blue-300 font-light"> Focus on the appearance of the website
+                                        interface</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Text Content - Sekarang di bawah untuk mobile -->
+                <div class="w-full md:w-1/2 text-center md:text-left mb-8 md:mb-0 order-2 md:order-1">
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 leading-tight">
+                        Hi, I'm <span class="text-blue-400">Indra</span>
+                    </h1>
+                    <h2 class="text-2xl md:text-3xl mb-6 text-gray-300 font-light">
+                        <span class="typewriter" x-data="{ 
+                        texts: ['Front-End Developer', 'UI/UX Enthusiast', 'JavaScript Specialist'], 
+                        currentText: '', 
+                        currentIndex: 0, 
+                        isDeleting: false, 
+                        loopNum: 0 
+                    }" x-init="(() => {
+                        const type = () => {
+                            const i = $data.loopNum % $data.texts.length;
+                            const fullText = $data.texts[i];
+                            
+                            $data.currentText = $data.isDeleting 
+                                ? fullText.substring(0, $data.currentText.length - 1) 
+                                : fullText.substring(0, $data.currentText.length + 1);
+                            
+                            if (!$data.isDeleting && $data.currentText === fullText) {
+                                setTimeout(() => $data.isDeleting = true, 2000);
+                            } else if ($data.isDeleting && $data.currentText === '') {
+                                $data.isDeleting = false;
+                                $data.loopNum++;
+                            }
+                            
+                            setTimeout(type, $data.isDeleting ? 50 : 150);
+                        };
+                        
+                        type();
+                    })()">
+                            <span x-text="currentText"></span>
+                            <span class="typewriter-cursor">|</span>
+                        </span>
+                    </h2>
+                    <p
+                        class="text-lg md:text-xl mb-8 text-gray-300 max-w-lg mx-auto md:mx-0 font-light leading-relaxed">
+                        I build modern, responsive web interfaces with clean code and a focus on user experience. Let’s
+                        create something amazing!
+                    </p>
+
+                    <!-- Tech Stack -->
+                    <div class="tech-stack mb-6">
+                        <span class="tech-item">HTML5</span>
+                        <span class="tech-item">CSS3</span>
+                        <span class="tech-item">JavaScript</span>
+                        <span class="tech-item">Next js</span>
+                        <span class="tech-item">Tailwind CSS</span>
+                    </div>
+
+                    <div
+                        class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 justify-center md:justify-start mt-6">
+                        <a href="#projects"
+                            class="bg-blue-700 hover:bg-blue-600 px-6 py-3 rounded-full font-medium shadow-md transform hover:scale-105 transition duration-300 text-center flex items-center justify-center glow-border">
+                            <i class="fas fa-laptop-code mr-2"></i> View My Work
+                        </a>
+                        <a href="#contact"
+                            class="border-2 border-blue-600 text-blue-400 hover:bg-blue-600 hover:text-white px-6 py-3 rounded-full font-medium shadow-md transform hover:scale-105 transition duration-300 text-center flex items-center justify-center glow-border">
+                            <i class="fas fa-envelope mr-2"></i> Contact Me
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scroll Down Indicator -->
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <a href="#about" class="text-blue-400 hover:text-blue-300">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+                </svg>
+            </a>
+        </div>
+    </section>
+
+    <script>
+        // Intersection Observer to detect which section is in view
+        document.addEventListener('alpine:init', () => {
+            Alpine.data('navObserver', () => ({
+                init() {
+                    // Set up intersection observer
+                    const observer = new IntersectionObserver((entries) => {
+                        entries.forEach(entry => {
+                            if (entry.isIntersecting) {
+                                this.activeSection = entry.target.id;
+                            }
+                        });
+                    }, { threshold: 0.5 });
+
+                    // Observe all sections
+                    document.querySelectorAll('section[id]').forEach(section => {
+                        observer.observe(section);
+                    });
+                },
+
+                handleScroll() {
+                    this.scrolled = window.scrollY > 50;
+                }
+            }));
+        });
+    </script>
 </body>
+
 </html>
