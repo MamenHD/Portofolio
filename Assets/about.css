@@ -1,0 +1,63 @@
+.animation-delay-100 {
+  animation-delay: 0.1s;
+}
+
+.animation-delay-200 {
+  animation-delay: 0.2s;
+}
+
+/* Timeline connector dots */
+.timeline-connector {
+  position: relative;
+  padding-left: 3rem;
+}
+
+.timeline-connector::before {
+  content: "";
+  position: absolute;
+  left: 1.25rem;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, #3b82f6, #8b5cf6);
+}
+
+.timeline-dot {
+  position: absolute;
+  left: 1rem;
+  top: 0.5rem;
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
+  background: #3b82f6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+  z-index: 1;
+}
+
+/* Hover effects for cards */
+.info-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px -5px rgba(59, 130, 246, 0.3);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .timeline-connector {
+    padding-left: 2rem;
+  }
+
+  .timeline-connector::before {
+    left: 0.75rem;
+  }
+
+  .timeline-dot {
+    left: 0.5rem;
+    width: 1.25rem;
+    height: 1.25rem;
+    font-size: 0.75rem;
+  }
+}

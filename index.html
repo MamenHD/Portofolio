@@ -4,10 +4,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Front-End Developer | Your Name</title>
+    <title>Front-End Developer | Indra Nur M.R</title>
 
     <!-- CSS -->
     <link rel="stylesheet" href="assets/output.css">
+
+    <!-- Navbar CSS -->
+    <link rel="stylesheet" href="assets/navbar.css">
+
+    <!-- About CSS -->
+    <link rel="stylesheet" href="assets/about.css">
 
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -15,156 +21,6 @@
     <!-- Alpine JS -->
     <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
 
-    <style>
-        /* Navbar styles */
-        .nav-link {
-            position: relative;
-            overflow: hidden;
-        }
-
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: linear-gradient(90deg, #2563EB, #1E40AF);
-            transition: width 0.3s ease, left 0.3s ease;
-        }
-
-        .nav-link:hover::after {
-            width: 100%;
-            left: 0;
-        }
-
-        .nav-link.active::after {
-            width: 100%;
-        }
-
-        .mobile-menu-item {
-            position: relative;
-            overflow: hidden;
-        }
-
-        .mobile-menu-item::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: rgba(37, 99, 235, 0.1);
-            transition: left 0.3s ease;
-        }
-
-        .mobile-menu-item:hover::before {
-            left: 0;
-        }
-
-        @keyframes pulse-glow {
-            0% {
-                box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.7);
-            }
-
-            70% {
-                box-shadow: 0 0 0 10px rgba(37, 99, 235, 0);
-            }
-
-            100% {
-                box-shadow: 0 0 0 0 rgba(37, 99, 235, 0);
-            }
-        }
-
-        .cta-button {
-            animation: pulse-glow 2s infinite;
-        }
-
-        .cta-button:hover {
-            animation: none;
-        }
-
-        /* Hero section styles */
-        .hero-gradient {
-            background: linear-gradient(135deg, #000000 0%, #111827 50%, #1E3A8A 100%);
-        }
-
-        .tech-stack {
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-            margin-top: 1.5rem;
-        }
-
-        .tech-item {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(5px);
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            transition: all 0.3s ease;
-            border: 1px solid rgba(37, 99, 235, 0.2);
-        }
-
-        .tech-item:hover {
-            background: rgba(37, 99, 235, 0.3);
-            transform: translateY(-2px);
-            border-color: rgba(37, 99, 235, 0.5);
-        }
-
-        .profile-image {
-            border: 3px solid rgba(37, 99, 235, 0.5);
-            box-shadow: 0 10px 30px -10px rgba(37, 99, 235, 0.7);
-        }
-
-        .typewriter-cursor {
-            animation: blink 1s step-end infinite;
-        }
-
-        @keyframes blink {
-
-            from,
-            to {
-                opacity: 1;
-            }
-
-            50% {
-                opacity: 0;
-            }
-        }
-
-        /* Dark theme adjustments */
-        body {
-            background-color: #111827;
-            color: #E5E7EB;
-        }
-
-        /* Glowing border effect */
-        .glow-border {
-            position: relative;
-        }
-
-        .glow-border::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            border-radius: inherit;
-            padding: 2px;
-            background: linear-gradient(45deg, #2563EB, #1E40AF);
-            -webkit-mask:
-                linear-gradient(#fff 0 0) content-box,
-                linear-gradient(#fff 0 0);
-            -webkit-mask-composite: xor;
-            mask-composite: exclude;
-            pointer-events: none;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .glow-border:hover::before {
-            opacity: 1;
-        }
-    </style>
 </head>
 
 <body class="font-sans bg-gray-900">
@@ -196,6 +52,11 @@
                         :class="{'text-white': activeSection === 'about', 'text-gray-300 hover:text-white': activeSection !== 'about'}"
                         @click="activeSection = 'about'">
                         <i class="fas fa-user mr-2"></i>About
+                    </a>
+                    <a href="#experience" class="nav-link px-4 py-2 text-sm font-medium transition-all duration-300"
+                        :class="{'text-white': activeSection === 'experience', 'text-gray-300 hover:text-white': activeSection !== 'experience'}"
+                        @click="activeSection = 'experience'">
+                        <i class="fas fa-briefcase mr-2"></i>Experience
                     </a>
                     <a href="#projects" class="nav-link px-4 py-2 text-sm font-medium transition-all duration-300"
                         :class="{'text-white': activeSection === 'projects', 'text-gray-300 hover:text-white': activeSection !== 'projects'}"
@@ -252,6 +113,12 @@
                     class="mobile-menu-item block px-4 py-3 rounded-md text-base font-medium text-white transition-all duration-300"
                     :class="{'bg-gray-800': activeSection === 'about'}" @click="activeSection = 'about'; open = false">
                     <i class="fas fa-user mr-3"></i>About
+                </a>
+                <a href="#experience"
+                    class="mobile-menu-item block px-4 py-3 rounded-md text-base font-medium text-white transition-all duration-300"
+                    :class="{'bg-gray-800': activeSection === 'experience'}"
+                    @click="activeSection = 'experience'; open = false">
+                    <i class="fas fa-briefcase mr-3"></i>Experience
                 </a>
                 <a href="#projects"
                     class="mobile-menu-item block px-4 py-3 rounded-md text-base font-medium text-white transition-all duration-300"
@@ -330,7 +197,7 @@
                     </h1>
                     <h2 class="text-2xl md:text-3xl mb-6 text-gray-300 font-light">
                         <span class="typewriter" x-data="{ 
-                        texts: ['Front-End Developer', 'UI/UX Enthusiast', 'JavaScript Specialist'], 
+                        texts: ['Front-End Developer', 'Junior Web Developer', 'JavaScript Specialist'], 
                         currentText: '', 
                         currentIndex: 0, 
                         isDeleting: false, 
@@ -362,7 +229,7 @@
                     </h2>
                     <p
                         class="text-lg md:text-xl mb-8 text-gray-300 max-w-lg mx-auto md:mx-0 font-light leading-relaxed">
-                        I build modern, responsive web interfaces with clean code and a focus on user experience. Let’s
+                        I build modern, responsive web interfaces with clean code and a focus on user experience. Let's
                         create something amazing!
                     </p>
 
@@ -402,32 +269,519 @@
         </div>
     </section>
 
-    <script>
-        // Intersection Observer to detect which section is in view
-        document.addEventListener('alpine:init', () => {
-            Alpine.data('navObserver', () => ({
-                init() {
-                    // Set up intersection observer
-                    const observer = new IntersectionObserver((entries) => {
-                        entries.forEach(entry => {
-                            if (entry.isIntersecting) {
-                                this.activeSection = entry.target.id;
-                            }
-                        });
-                    }, { threshold: 0.5 });
+    <!-- About Section -->
+    <section id="about" class="relative py-20 bg-gray-900 overflow-hidden">
+        <!-- Decorative elements -->
+        <div class="absolute top-0 left-0 w-full h-full opacity-10">
+            <div class="absolute top-20 left-10 w-40 h-40 bg-blue-600 rounded-full filter blur-3xl opacity-20"></div>
+            <div class="absolute bottom-10 right-10 w-60 h-60 bg-indigo-600 rounded-full filter blur-3xl opacity-20">
+            </div>
+            <div
+                class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-purple-600 rounded-full filter blur-3xl opacity-10">
+            </div>
+        </div>
 
-                    // Observe all sections
-                    document.querySelectorAll('section[id]').forEach(section => {
-                        observer.observe(section);
-                    });
-                },
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
+                    <span class="text-blue-400">About</span> Me
+                </h2>
+                <div class="w-20 h-1 bg-gradient-to-r from-blue-600 to-blue-800 mx-auto mb-6"></div>
+                <p class="text-lg text-gray-300 max-w-3xl mx-auto">
+                    Get to know the person behind the code and my journey in web development
+                </p>
+            </div>
 
-                handleScroll() {
-                    this.scrolled = window.scrollY > 50;
-                }
-            }));
-        });
-    </script>
+            <div class="flex flex-col lg:flex-row items-center gap-12">
+                <!-- Interactive Image -->
+                <div class="w-full lg:w-1/3 relative group" x-data="{ hovered: false }" @mouseenter="hovered = true"
+                    @mouseleave="hovered = false">
+                    <div class="relative z-10 w-full max-w-sm mx-auto">
+                        <!-- Floating elements that appear on hover -->
+                        <div
+                            class="absolute -top-6 -left-6 w-16 h-16 bg-blue-600 rounded-lg opacity-0 group-hover:opacity-100 transition-all duration-500 transform group-hover:-rotate-12">
+                        </div>
+                        <div
+                            class="absolute -bottom-6 -right-6 w-16 h-16 bg-indigo-600 rounded-lg opacity-0 group-hover:opacity-100 transition-all duration-500 transform group-hover:rotate-12">
+                        </div>
+
+                        <!-- Main image with hover effect -->
+                        <div
+                            class="relative overflow-hidden rounded-xl shadow-2xl border-2 border-gray-700 transform transition-all duration-700 group-hover:-translate-y-2">
+                            <img src="https://images.unsplash.com/photo-1571171637578-41bc2dd41cd2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80"
+                                alt="About Me"
+                                class="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105">
+
+                            <!-- Hover overlay with animated border -->
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-6">
+                                <div
+                                    class="text-white translate-y-6 group-hover:translate-y-0 transition-transform duration-500">
+                                    <h3 class="text-xl font-bold">Indra Nur Muhammad Ramadhan</h3>
+                                    <p class="text-blue-300">Front-End Developer</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Floating tech icons that animate on hover -->
+                    <div class="absolute -top-8 -right-8 w-16 h-16 bg-gray-800 rounded-full flex items-center justify-center shadow-lg border border-gray-700 transform transition-all duration-700 group-hover:rotate-12"
+                        :class="{'animate-bounce': hovered}">
+                        <i class="fab fa-html5 text-orange-500 text-2xl"></i>
+                    </div>
+                    <div class="absolute -bottom-8 -left-8 w-16 h-16 bg-gray-800 rounded-full flex items-center justify-center shadow-lg border border-gray-700 transform transition-all duration-700 group-hover:-rotate-12"
+                        :class="{'animate-bounce': hovered, 'animation-delay-100': hovered}">
+                        <i class="fab fa-css3-alt text-blue-400 text-2xl"></i>
+                    </div>
+                    <div class="absolute top-1/4 -left-8 w-16 h-16 bg-gray-800 rounded-full flex items-center justify-center shadow-lg border border-gray-700 transform transition-all duration-700 group-hover:-rotate-12"
+                        :class="{'animate-bounce': hovered, 'animation-delay-200': hovered}">
+                        <i class="fab fa-js-square text-yellow-400 text-2xl"></i>
+                    </div>
+                </div>
+
+                <!-- About Content with Interactive Timeline -->
+                <div class="w-full lg:w-2/3">
+                    <div class="bg-gray-800/50 backdrop-blur-sm rounded-xl p-6 md:p-8 border border-gray-700 shadow-xl">
+                        <h3 class="text-2xl font-bold text-white mb-6">My Journey in Web Development</h3>
+
+                        <!-- Interactive Timeline -->
+                        <div
+                            class="space-y-8 relative before:absolute before:inset-0 before:ml-5 before:w-0.5 before:bg-gradient-to-b before:from-blue-600 before:via-indigo-600 before:to-purple-600 md:before:ml-8">
+                            <!-- Timeline Item 1 -->
+                            <div class="relative" x-data="{ expanded: false }">
+                                <div class="flex items-center cursor-pointer" @click="expanded = !expanded">
+                                    <div
+                                        class="absolute left-0 w-10 h-10 bg-gradient-to-r from-blue-600 to-blue-800 rounded-full flex items-center justify-center text-white font-bold z-10">
+                                        1
+                                    </div>
+                                    <h4 class="ml-16 text-lg font-semibold text-white">Started Learning Web Development
+                                    </h4>
+                                    <i class="fas ml-auto transition-transform duration-300"
+                                        :class="{'fa-chevron-down': !expanded, 'fa-chevron-up': expanded}"></i>
+                                </div>
+                                <div x-show="expanded" x-collapse class="ml-16 mt-2 pl-2 border-l-2 border-blue-600/50">
+                                    <p class="text-gray-300">
+                                        My journey began with HTML and CSS, creating simple static websites. I quickly
+                                        fell in love with the process of turning ideas into visual interfaces.
+                                    </p>
+                                    <div class="mt-2 flex flex-wrap gap-2">
+                                        <span
+                                            class="px-3 py-1 bg-blue-900/50 text-blue-300 rounded-full text-sm">HTML5</span>
+                                        <span
+                                            class="px-3 py-1 bg-blue-900/50 text-blue-300 rounded-full text-sm">CSS3</span>
+                                        <span
+                                            class="px-3 py-1 bg-blue-900/50 text-blue-300 rounded-full text-sm">Responsive
+                                            Design</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Timeline Item 2 -->
+                            <div class="relative" x-data="{ expanded: false }">
+                                <div class="flex items-center cursor-pointer" @click="expanded = !expanded">
+                                    <div
+                                        class="absolute left-0 w-10 h-10 bg-gradient-to-r from-indigo-600 to-indigo-800 rounded-full flex items-center justify-center text-white font-bold z-10">
+                                        2
+                                    </div>
+                                    <h4 class="ml-16 text-lg font-semibold text-white">Discovered JavaScript</h4>
+                                    <i class="fas ml-auto transition-transform duration-300"
+                                        :class="{'fa-chevron-down': !expanded, 'fa-chevron-up': expanded}"></i>
+                                </div>
+                                <div x-show="expanded" x-collapse
+                                    class="ml-16 mt-2 pl-2 border-l-2 border-indigo-600/50">
+                                    <p class="text-gray-300">
+                                        Learned JavaScript to add interactivity to my websites. Built my first projects
+                                        with DOM manipulation and basic APIs.
+                                    </p>
+                                    <div class="mt-2 flex flex-wrap gap-2">
+                                        <span
+                                            class="px-3 py-1 bg-indigo-900/50 text-indigo-300 rounded-full text-sm">JavaScript</span>
+                                        <span
+                                            class="px-3 py-1 bg-indigo-900/50 text-indigo-300 rounded-full text-sm">ES6+</span>
+                                        <span
+                                            class="px-3 py-1 bg-indigo-900/50 text-indigo-300 rounded-full text-sm">API
+                                            Integration</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Timeline Item 3 -->
+                            <div class="relative" x-data="{ expanded: false }">
+                                <div class="flex items-center cursor-pointer" @click="expanded = !expanded">
+                                    <div
+                                        class="absolute left-0 w-10 h-10 bg-gradient-to-r from-purple-600 to-purple-800 rounded-full flex items-center justify-center text-white font-bold z-10">
+                                        3
+                                    </div>
+                                    <h4 class="ml-16 text-lg font-semibold text-white">Modern Frameworks & Tools</h4>
+                                    <i class="fas ml-auto transition-transform duration-300"
+                                        :class="{'fa-chevron-down': !expanded, 'fa-chevron-up': expanded}"></i>
+                                </div>
+                                <div x-show="expanded" x-collapse
+                                    class="ml-16 mt-2 pl-2 border-l-2 border-purple-600/50">
+                                    <p class="text-gray-300">
+                                        Explored modern frontend frameworks like Next.js and styling tools like Tailwind
+                                        CSS to build more efficient and maintainable applications.
+                                    </p>
+                                    <div class="mt-2 flex flex-wrap gap-2">
+                                        <span
+                                            class="px-3 py-1 bg-purple-900/50 text-purple-300 rounded-full text-sm">Next.js</span>
+                                        <span
+                                            class="px-3 py-1 bg-purple-900/50 text-purple-300 rounded-full text-sm">Tailwind
+                                            CSS</span>
+                                        <span
+                                            class="px-3 py-1 bg-purple-900/50 text-purple-300 rounded-full text-sm">React</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Personal Info Cards -->
+                        <div class="mt-12 grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <!-- Card 1 -->
+                            <div
+                                class="bg-gray-800/50 border border-gray-700 rounded-lg p-4 hover:bg-gray-800 transition-all duration-300 transform hover:-translate-y-1">
+                                <div class="flex items-center mb-3">
+                                    <div
+                                        class="w-10 h-10 bg-blue-600/20 rounded-full flex items-center justify-center mr-3">
+                                        <i class="fas fa-user-graduate text-blue-400"></i>
+                                    </div>
+                                    <h4 class="font-semibold text-white">Education</h4>
+                                </div>
+                                <p class="text-gray-300 text-sm">
+                                    Bachelor's Degree in Computer Science with focus on Web Technologies and User
+                                    Interface Design.
+                                </p>
+                            </div>
+
+                            <!-- Card 2 -->
+                            <div
+                                class="bg-gray-800/50 border border-gray-700 rounded-lg p-4 hover:bg-gray-800 transition-all duration-300 transform hover:-translate-y-1">
+                                <div class="flex items-center mb-3">
+                                    <div
+                                        class="w-10 h-10 bg-indigo-600/20 rounded-full flex items-center justify-center mr-3">
+                                        <i class="fas fa-briefcase text-indigo-400"></i>
+                                    </div>
+                                    <h4 class="font-semibold text-white">Experience</4>
+                                </div>
+                                <p class="text-gray-300 text-sm">
+                                    2+ years building responsive websites and web applications for clients and personal
+                                    projects.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Personal Quote -->
+                        <div
+                            class="mt-8 p-4 bg-gradient-to-r from-blue-900/30 to-indigo-900/30 border-l-4 border-blue-400 rounded-r-lg">
+                            <p class="text-gray-300 italic">
+                                "I believe that great web experiences come from the perfect balance of aesthetics and
+                                functionality. My goal is to create interfaces that are not only beautiful but also
+                                intuitive and accessible to everyone."
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Timeline Section -->
+    <section id="experience" class="relative py-20 bg-gray-900 overflow-hidden">
+        <!-- Decorative elements -->
+        <div class="absolute top-0 left-0 w-full h-full opacity-10">
+            <div class="absolute top-20 right-10 w-40 h-40 bg-indigo-600 rounded-full filter blur-3xl opacity-20"></div>
+            <div class="absolute bottom-10 left-10 w-60 h-60 bg-blue-600 rounded-full filter blur-3xl opacity-20"></div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
+                    My <span class="text-blue-400">Experience</span>
+                </h2>
+                <div class="w-20 h-1 bg-gradient-to-r from-blue-600 to-blue-800 mx-auto mb-6"></div>
+                <p class="text-lg text-gray-300 max-w-3xl mx-auto">
+                    A timeline of my professional journey and key milestones
+                </p>
+            </div>
+
+            <!-- Timeline Container -->
+            <div class="relative">
+                <!-- Timeline Line -->
+                <div
+                    class="hidden md:block absolute left-1/2 h-full w-0.5 bg-gradient-to-b from-blue-600 via-indigo-600 to-purple-600 transform -translate-x-1/2">
+                </div>
+
+                <!-- Timeline Items -->
+                <div class="space-y-8 md:space-y-16">
+                    <!-- Timeline Item 1 -->
+                    <div class="relative w-full md:flex items-center justify-between">
+                        <!-- Left Side (Desktop) -->
+                        <div class="hidden md:block w-1/2 pr-8 text-right">
+                            <div
+                                class="bg-gray-800/50 backdrop-blur-sm rounded-xl p-6 border border-gray-700 shadow-lg transform transition-all duration-500 hover:-translate-y-2 hover:shadow-xl">
+                                <div class="flex justify-end items-center mb-2">
+                                    <span class="text-blue-400 font-bold">2020 - 2025</span>
+                                </div>
+                                <h3 class="text-xl font-bold text-white mb-2">Junior Web Programming</h3>
+                                <h4 class="text-blue-300 mb-3">SMK TamanSiswa 2</h4>
+                                <p class="text-gray-300 mb-4">In the beginning, I was in the IT field, especially front
+                                    end. I learned the basics of web programming and from there I became interested in
+                                    the front end field.</p>
+                                <div class="flex justify-end flex-wrap gap-2">
+                                    <span
+                                        class="px-3 py-1 bg-blue-900/50 text-blue-300 rounded-full text-sm">HTML5</span>
+                                    <span
+                                        class="px-3 py-1 bg-blue-900/50 text-blue-300 rounded-full text-sm">CSS3</span>
+                                    <span
+                                        class="px-3 py-1 bg-blue-900/50 text-blue-300 rounded-full text-sm">JavaScript</span>
+                                    <span class="px-3 py-1 bg-blue-900/50 text-blue-300 rounded-full text-sm">PHP</span>
+                                    <span
+                                        class="px-3 py-1 bg-blue-900/50 text-blue-300 rounded-full text-sm">Laravel</span>
+                                    <span
+                                        class="px-3 py-1 bg-blue-900/50 text-blue-300 rounded-full text-sm">Mysql</span>
+                                    <span class="px-3 py-1 bg-blue-900/50 text-blue-300 rounded-full text-sm">C#</span>
+                                    <span
+                                        class="px-3 py-1 bg-blue-900/50 text-blue-300 rounded-full text-sm">Python</span>
+                                    <span
+                                        class="px-3 py-1 bg-blue-900/50 text-blue-300 rounded-full text-sm">Boostrap</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Timeline Dot -->
+                        <div
+                            class="hidden md:flex absolute left-1/2 w-6 h-6 bg-blue-500 rounded-full border-4 border-gray-900 transform -translate-x-1/2 -translate-y-1/2 z-10">
+                        </div>
+
+                        <!-- Right Side (Desktop) -->
+                        <div class="hidden md:block w-1/2 pl-8">
+                            <div class="h-full flex items-center justify-start">
+                                <img src="assets/image/experience/tamsis.png" alt="Tamsis"
+                                    class="rounded-lg shadow-lg w-full max-w-xs h-auto object-cover transform transition-all duration-500 hover:scale-105">
+                            </div>
+                        </div>
+
+                        <!-- Mobile Version -->
+                        <div class="md:hidden w-full">
+                            <div
+                                class="bg-gray-800/50 backdrop-blur-sm rounded-xl p-6 border border-gray-700 shadow-lg mb-4">
+                                <div class="flex justify-between items-center mb-2">
+                                    <span class="text-blue-400 font-bold">2020 - 2025</span>
+                                </div>
+                                <h3 class="text-xl font-bold text-white mb-2">Junior Web Programming</h3>
+                                <h4 class="text-blue-300 mb-3">SMK TamanSiswa 2</h4>
+                                <img src="assets/image/experience/tamsis.png" alt="Tamsis"
+                                    class="rounded-lg shadow-lg w-full h-auto object-cover mb-4">
+                                <p class="text-gray-300 mb-4">In the beginning, I was in the IT field, especially front
+                                    end. I learned the basics of web programming and from there I became interested in
+                                    the front end field.</p>
+                                <div class="flex flex-wrap gap-2">
+                                    <span
+                                        class="px-3 py-1 bg-blue-900/50 text-blue-300 rounded-full text-sm">HTML5</span>
+                                    <span
+                                        class="px-3 py-1 bg-blue-900/50 text-blue-300 rounded-full text-sm">CSS3</span>
+                                    <span
+                                        class="px-3 py-1 bg-blue-900/50 text-blue-300 rounded-full text-sm">JavaScript</span>
+                                    <span class="px-3 py-1 bg-blue-900/50 text-blue-300 rounded-full text-sm">PHP</span>
+                                    <span
+                                        class="px-3 py-1 bg-blue-900/50 text-blue-300 rounded-full text-sm">Laravel</span>
+                                    <span
+                                        class="px-3 py-1 bg-blue-900/50 text-blue-300 rounded-full text-sm">Mysql</span>
+                                    <span class="px-3 py-1 bg-blue-900/50 text-blue-300 rounded-full text-sm">C#</span>
+                                    <span
+                                        class="px-3 py-1 bg-blue-900/50 text-blue-300 rounded-full text-sm">Python</span>
+                                    <span
+                                        class="px-3 py-1 bg-blue-900/50 text-blue-300 rounded-full text-sm">Boostrap</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Timeline Item 2 -->
+                    <div class="relative w-full md:flex items-center justify-between">
+                        <!-- Left Side (Desktop) -->
+                        <div class="hidden md:block w-1/2 pr-8">
+                            <div class="h-full flex items-center justify-end">
+                                <img src="assets/image/experience/lks.jpeg" alt="Web Programming LKS Competition"
+                                    class="rounded-lg shadow-lg w-full max-w-xs h-auto object-cover transform transition-all duration-500 hover:scale-105">
+                            </div>
+                        </div>
+
+                        <!-- Timeline Dot -->
+                        <div
+                            class="hidden md:flex absolute left-1/2 w-6 h-6 bg-indigo-500 rounded-full border-4 border-gray-900 transform -translate-x-1/2 -translate-y-1/2 z-10">
+                        </div>
+
+                        <!-- Right Side (Desktop) -->
+                        <div class="hidden md:block w-1/2 pl-8 text-left">
+                            <div
+                                class="bg-gray-800/50 backdrop-blur-sm rounded-xl p-6 border border-gray-700 shadow-lg transform transition-all duration-500 hover:-translate-y-2 hover:shadow-xl">
+                                <div class="flex justify-start items-center mb-2">
+                                    <span class="text-indigo-400 font-bold">2024</span>
+                                </div>
+                                <h3 class="text-xl font-bold text-white mb-2">Junior Web Developer</h3>
+                                <h4 class="text-indigo-300 mb-3">Web Programming LKS Competition</h4>
+                                <p class="text-gray-300 mb-4">I participated in a web programming competition held by
+                                    the department of education and I won 4th place in that field.</p>
+                                <div class="flex justify-start flex-wrap gap-2">
+                                    <span
+                                        class="px-3 py-1 bg-blue-900/50 text-blue-300 rounded-full text-sm">HTML5</span>
+                                    <span
+                                        class="px-3 py-1 bg-blue-900/50 text-blue-300 rounded-full text-sm">CSS3</span>
+                                    <span
+                                        class="px-3 py-1 bg-blue-900/50 text-blue-300 rounded-full text-sm">JavaScript</span>
+                                    <span class="px-3 py-1 bg-blue-900/50 text-blue-300 rounded-full text-sm">PHP</span>
+                                    <span
+                                        class="px-3 py-1 bg-blue-900/50 text-blue-300 rounded-full text-sm">Laravel</span>
+                                    <span
+                                        class="px-3 py-1 bg-blue-900/50 text-blue-300 rounded-full text-sm">Mysql</span>
+                                    <span
+                                        class="px-3 py-1 bg-blue-900/50 text-blue-300 rounded-full text-sm">React</span>
+                                    <span class="px-3 py-1 bg-blue-900/50 text-blue-300 rounded-full text-sm">Rest
+                                        API</span>
+                                    <span
+                                        class="px-3 py-1 bg-blue-900/50 text-blue-300 rounded-full text-sm">Boostrap</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Mobile Version -->
+                        <div class="md:hidden w-full">
+                            <div
+                                class="bg-gray-800/50 backdrop-blur-sm rounded-xl p-6 border border-gray-700 shadow-lg mb-4">
+                                <div class="flex justify-between items-center mb-2">
+                                    <span class="text-indigo-400 font-bold">2024</span>
+                                </div>
+                                <h3 class="text-xl font-bold text-white mb-2">Junior Web Developer</h3>
+                                <h4 class="text-indigo-300 mb-3">Web Programming LKS Competition</h4>
+                                <img src="assets/image/experience/lks.jpeg" alt="Web Programming LKS Competition"
+                                    class="rounded-lg shadow-lg w-full h-auto object-cover mb-4">
+                                <p class="text-gray-300 mb-4">I participated in a web programming competition held by
+                                    the department of education and I won 4th place in that field.</p>
+                                <div class="flex flex-wrap gap-2">
+                                    <span
+                                        class="px-3 py-1 bg-blue-900/50 text-blue-300 rounded-full text-sm">HTML5</span>
+                                    <span
+                                        class="px-3 py-1 bg-blue-900/50 text-blue-300 rounded-full text-sm">CSS3</span>
+                                    <span
+                                        class="px-3 py-1 bg-blue-900/50 text-blue-300 rounded-full text-sm">JavaScript</span>
+                                    <span class="px-3 py-1 bg-blue-900/50 text-blue-300 rounded-full text-sm">PHP</span>
+                                    <span
+                                        class="px-3 py-1 bg-blue-900/50 text-blue-300 rounded-full text-sm">Laravel</span>
+                                    <span
+                                        class="px-3 py-1 bg-blue-900/50 text-blue-300 rounded-full text-sm">Mysql</span>
+                                    <span
+                                        class="px-3 py-1 bg-blue-900/50 text-blue-300 rounded-full text-sm">React</span>
+                                    <span class="px-3 py-1 bg-blue-900/50 text-blue-300 rounded-full text-sm">Rest
+                                        API</span>
+                                    <span
+                                        class="px-3 py-1 bg-blue-900/50 text-blue-300 rounded-full text-sm">Boostrap</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Timeline Item 3 -->
+                    <div class="relative w-full md:flex items-center justify-between">
+                        <!-- Left Side (Desktop) -->
+                        <div class="hidden md:block w-1/2 pr-8 text-right">
+                            <div
+                                class="bg-gray-800/50 backdrop-blur-sm rounded-xl p-6 border border-gray-700 shadow-lg transform transition-all duration-500 hover:-translate-y-2 hover:shadow-xl">
+                                <div class="flex justify-end items-center mb-2">
+                                    <span class="text-purple-400 font-bold">2024 - Now</span>
+                                </div>
+                                <h3 class="text-xl font-bold text-white mb-2">Front End Developer</h3>
+                                <h4 class="text-purple-300 mb-3">Miti Ed Care</h4>
+                                <p class="text-gray-300 mb-4">
+                                    I did an internship program at Miti Ed Care as a Front End Developer and have
+                                    created several website projects for the company.</p>
+                                <div class="flex justify-end flex-wrap gap-2">
+                                    <span
+                                        class="px-3 py-1 bg-blue-900/50 text-blue-300 rounded-full text-sm">HTML5</span>
+                                    <span
+                                        class="px-3 py-1 bg-blue-900/50 text-blue-300 rounded-full text-sm">CSS3</span>
+                                    <span
+                                        class="px-3 py-1 bg-blue-900/50 text-blue-300 rounded-full text-sm">JavaScript</span>
+                                    <span class="px-3 py-1 bg-blue-900/50 text-blue-300 rounded-full text-sm">PHP</span>
+                                    <span class="px-3 py-1 bg-blue-900/50 text-blue-300 rounded-full text-sm">Next
+                                        js</span>
+                                    <span
+                                        class="px-3 py-1 bg-blue-900/50 text-blue-300 rounded-full text-sm">Mysql</span>
+                                    <span
+                                        class="px-3 py-1 bg-blue-900/50 text-blue-300 rounded-full text-sm">React</span>
+                                    <span class="px-3 py-1 bg-blue-900/50 text-blue-300 rounded-full text-sm">Rest
+                                        API</span>
+                                    <span
+                                        class="px-3 py-1 bg-blue-900/50 text-blue-300 rounded-full text-sm">Tailwind</span>
+                                    <span
+                                        class="px-3 py-1 bg-blue-900/50 text-blue-300 rounded-full text-sm">Moodle</span>
+                                    <span
+                                        class="px-3 py-1 bg-blue-900/50 text-blue-300 rounded-full text-sm">Wordpress</span>
+                                    <span class="px-3 py-1 bg-blue-900/50 text-blue-300 rounded-full text-sm">VM</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Timeline Dot -->
+                        <div
+                            class="hidden md:flex absolute left-1/2 w-6 h-6 bg-purple-500 rounded-full border-4 border-gray-900 transform -translate-x-1/2 -translate-y-1/2 z-10">
+                        </div>
+
+                        <!-- Right Side (Desktop) -->
+                        <div class="hidden md:block w-1/2 pl-8">
+                            <div class="h-full flex items-center justify-start">
+                                <img src="assets/image/experience/pkl.png" alt="Miti"
+                                    class="rounded-lg shadow-lg w-full max-w-xs h-auto object-cover transform transition-all duration-500 hover:scale-105">
+                            </div>
+                        </div>
+
+                        <!-- Mobile Version -->
+                        <div class="md:hidden w-full">
+                            <div
+                                class="bg-gray-800/50 backdrop-blur-sm rounded-xl p-6 border border-gray-700 shadow-lg mb-4">
+                                <div class="flex justify-between items-center mb-2">
+                                    <span class="text-purple-400 font-bold">2024 - Now</span>
+                                </div>
+                                <h3 class="text-xl font-bold text-white mb-2">Front End Developer</h3>
+                                <h4 class="text-purple-300 mb-3">Miti Ed Care</h4>
+                                <img src="assets/image/experience/pkl.png" alt="Miti"
+                                    class="rounded-lg shadow-lg w-full h-auto object-cover mb-4">
+                                <p class="text-gray-300 mb-4">
+                                    I did an internship program at Miti Ed Care as a Front End Developer and have
+                                    created several website projects for the company.</p>
+                                <div class="flex flex-wrap gap-2">
+                                                                        <span
+                                        class="px-3 py-1 bg-blue-900/50 text-blue-300 rounded-full text-sm">HTML5</span>
+                                    <span
+                                        class="px-3 py-1 bg-blue-900/50 text-blue-300 rounded-full text-sm">CSS3</span>
+                                    <span
+                                        class="px-3 py-1 bg-blue-900/50 text-blue-300 rounded-full text-sm">JavaScript</span>
+                                    <span class="px-3 py-1 bg-blue-900/50 text-blue-300 rounded-full text-sm">PHP</span>
+                                    <span class="px-3 py-1 bg-blue-900/50 text-blue-300 rounded-full text-sm">Next
+                                        js</span>
+                                    <span
+                                        class="px-3 py-1 bg-blue-900/50 text-blue-300 rounded-full text-sm">Mysql</span>
+                                    <span
+                                        class="px-3 py-1 bg-blue-900/50 text-blue-300 rounded-full text-sm">React</span>
+                                    <span class="px-3 py-1 bg-blue-900/50 text-blue-300 rounded-full text-sm">Rest
+                                        API</span>
+                                    <span
+                                        class="px-3 py-1 bg-blue-900/50 text-blue-300 rounded-full text-sm">Tailwind</span>
+                                    <span
+                                        class="px-3 py-1 bg-blue-900/50 text-blue-300 rounded-full text-sm">Moodle</span>
+                                    <span
+                                        class="px-3 py-1 bg-blue-900/50 text-blue-300 rounded-full text-sm">Wordpress</span>
+                                    <span class="px-3 py-1 bg-blue-900/50 text-blue-300 rounded-full text-sm">VM</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="assets/main.js"></script>
 </body>
 
 </html>
