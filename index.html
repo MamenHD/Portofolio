@@ -784,6 +784,322 @@
         </div>
     </section>
 
+    <!-- Skills Section -->
+    <section id="skills" class="relative py-20 bg-gray-900 overflow-hidden">
+        <!-- Decorative elements -->
+        <div class="absolute inset-0 opacity-10">
+            <div class="absolute top-20 left-10 w-40 h-40 bg-blue-600 rounded-full filter blur-3xl opacity-20"></div>
+            <div class="absolute bottom-10 right-10 w-60 h-60 bg-indigo-600 rounded-full filter blur-3xl opacity-20">
+            </div>
+            <div
+                class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-purple-600 rounded-full filter blur-3xl opacity-10">
+            </div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
+                    My <span class="text-blue-400">Skills</span>
+                </h2>
+                <div class="w-20 h-1 bg-gradient-to-r from-blue-600 to-blue-800 mx-auto mb-6"></div>
+                <p class="text-lg text-gray-300 max-w-3xl mx-auto">
+                    The tools and technologies I use to bring ideas to life
+                </p>
+            </div>
+
+            <!-- Skills Grid -->
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                <!-- Skill Card 1 -->
+                <div x-data="{ hovered: false }" @mouseenter="hovered = true" @mouseleave="hovered = false"
+                    class="skill-card bg-gray-800/50 backdrop-blur-sm rounded-xl p-6 border border-gray-700 transition-all duration-500 transform hover:-translate-y-2 hover:shadow-xl">
+                    <div class="flex flex-col items-center text-center">
+                        <div class="relative mb-4">
+                            <div class="w-16 h-16 bg-blue-600/10 rounded-full flex items-center justify-center transition-all duration-500"
+                                :class="{'rotate-12 scale-110': hovered}">
+                                <i class="fab fa-html5 text-orange-500 text-3xl"></i>
+                            </div>
+                        </div>
+                        <h3 class="text-lg font-semibold text-white mb-1">HTML5</h3>
+                        <p class="text-sm text-gray-300">Semantic markup, Accessibility, SEO</p>
+                        <div class="mt-3 flex flex-wrap justify-center gap-1">
+                            <span class="px-2 py-0.5 bg-blue-900/30 text-blue-300 rounded-full text-xs">Semantic</span>
+                            <span class="px-2 py-0.5 bg-blue-900/30 text-blue-300 rounded-full text-xs">SEO</span>
+                            <span
+                                class="px-2 py-0.5 bg-blue-900/30 text-blue-300 rounded-full text-xs">Accessibility</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Skill Card 2 -->
+                <div x-data="{ hovered: false }" @mouseenter="hovered = true" @mouseleave="hovered = false"
+                    class="skill-card bg-gray-800/50 backdrop-blur-sm rounded-xl p-6 border border-gray-700 transition-all duration-500 transform hover:-translate-y-2 hover:shadow-xl">
+                    <div class="flex flex-col items-center text-center">
+                        <div class="relative mb-4">
+                            <div class="w-16 h-16 bg-blue-600/10 rounded-full flex items-center justify-center transition-all duration-500"
+                                :class="{'rotate-12 scale-110': hovered}">
+                                <i class="fab fa-css3-alt text-blue-400 text-3xl"></i>
+                            </div>
+                        </div>
+                        <h3 class="text-lg font-semibold text-white mb-1">CSS3</h3>
+                        <p class="text-sm text-gray-300">Animations, Flexbox, Grid</p>
+                        <div class="mt-3 flex flex-wrap justify-center gap-1">
+                            <span class="px-2 py-0.5 bg-blue-900/30 text-blue-300 rounded-full text-xs">Flexbox</span>
+                            <span class="px-2 py-0.5 bg-blue-900/30 text-blue-300 rounded-full text-xs">Grid</span>
+                            <span
+                                class="px-2 py-0.5 bg-blue-900/30 text-blue-300 rounded-full text-xs">Animations</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Skill Card 3 -->
+                <div x-data="{ hovered: false }" @mouseenter="hovered = true" @mouseleave="hovered = false"
+                    class="skill-card bg-gray-800/50 backdrop-blur-sm rounded-xl p-6 border border-gray-700 transition-all duration-500 transform hover:-translate-y-2 hover:shadow-xl">
+                    <div class="flex flex-col items-center text-center">
+                        <div class="relative mb-4">
+                            <div class="w-16 h-16 bg-blue-600/10 rounded-full flex items-center justify-center transition-all duration-500"
+                                :class="{'rotate-12 scale-110': hovered}">
+                                <i class="fab fa-js-square text-yellow-400 text-3xl"></i>
+                            </div>
+                        </div>
+                        <h3 class="text-lg font-semibold text-white mb-1">JavaScript</h3>
+                        <p class="text-sm text-gray-300">ES6+, DOM, Async</p>
+                        <div class="mt-3 flex flex-wrap justify-center gap-1">
+                            <span class="px-2 py-0.5 bg-blue-900/30 text-blue-300 rounded-full text-xs">ES6+</span>
+                            <span class="px-2 py-0.5 bg-blue-900/30 text-blue-300 rounded-full text-xs">DOM</span>
+                            <span class="px-2 py-0.5 bg-blue-900/30 text-blue-300 rounded-full text-xs">Async</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Skill Card 4 -->
+                <div x-data="{ hovered: false }" @mouseenter="hovered = true" @mouseleave="hovered = false"
+                    class="skill-card bg-gray-800/50 backdrop-blur-sm rounded-xl p-6 border border-gray-700 transition-all duration-500 transform hover:-translate-y-2 hover:shadow-xl">
+                    <div class="flex flex-col items-center text-center">
+                        <div class="relative mb-4">
+                            <div class="w-16 h-16 bg-blue-600/10 rounded-full flex items-center justify-center transition-all duration-500"
+                                :class="{'rotate-12 scale-110': hovered}">
+                                <i class="fab fa-react text-blue-400 text-3xl"></i>
+                            </div>
+                        </div>
+                        <h3 class="text-lg font-semibold text-white mb-1">React</h3>
+                        <p class="text-sm text-gray-300">Hooks, Context, Components</p>
+                        <div class="mt-3 flex flex-wrap justify-center gap-1">
+                            <span class="px-2 py-0.5 bg-blue-900/30 text-blue-300 rounded-full text-xs">Hooks</span>
+                            <span class="px-2 py-0.5 bg-blue-900/30 text-blue-300 rounded-full text-xs">Context</span>
+                            <span
+                                class="px-2 py-0.5 bg-blue-900/30 text-blue-300 rounded-full text-xs">Components</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Skill Card 5 -->
+                <div x-data="{ hovered: false }" @mouseenter="hovered = true" @mouseleave="hovered = false"
+                    class="skill-card bg-gray-800/50 backdrop-blur-sm rounded-xl p-6 border border-gray-700 transition-all duration-500 transform hover:-translate-y-2 hover:shadow-xl">
+                    <div class="flex flex-col items-center text-center">
+                        <div class="relative mb-4">
+                            <div class="w-16 h-16 bg-blue-600/10 rounded-full flex items-center justify-center transition-all duration-500"
+                                :class="{'rotate-12 scale-110': hovered}">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg"
+                                    class="w-8 h-8" alt="Next.js" />
+                            </div>
+                        </div>
+                        <h3 class="text-lg font-semibold text-white mb-1">Next.js</h3>
+                        <p class="text-sm text-gray-300">SSR, SSG, API Routes</p>
+                        <div class="mt-3 flex flex-wrap justify-center gap-1">
+                            <span class="px-2 py-0.5 bg-blue-900/30 text-blue-300 rounded-full text-xs">SSR</span>
+                            <span class="px-2 py-0.5 bg-blue-900/30 text-blue-300 rounded-full text-xs">SSG</span>
+                            <span class="px-2 py-0.5 bg-blue-900/30 text-blue-300 rounded-full text-xs">API
+                                Routes</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Skill Card 6 -->
+                <div x-data="{ hovered: false }" @mouseenter="hovered = true" @mouseleave="hovered = false"
+                    class="skill-card bg-gray-800/50 backdrop-blur-sm rounded-xl p-6 border border-gray-700 transition-all duration-500 transform hover:-translate-y-2 hover:shadow-xl">
+                    <div class="flex flex-col items-center text-center">
+                        <div class="relative mb-4">
+                            <div class="w-16 h-16 bg-blue-600/10 rounded-full flex items-center justify-center transition-all duration-500"
+                                :class="{'rotate-12 scale-110': hovered}">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg"
+                                    class="w-8 h-8" alt="Tailwind CSS" />
+                            </div>
+                        </div>
+                        <h3 class="text-lg font-semibold text-white mb-1">Tailwind CSS</h3>
+                        <p class="text-sm text-gray-300">Utility-first, Responsive</p>
+                        <div class="mt-3 flex flex-wrap justify-center gap-1">
+                            <span class="px-2 py-0.5 bg-blue-900/30 text-blue-300 rounded-full text-xs">Utility</span>
+                            <span
+                                class="px-2 py-0.5 bg-blue-900/30 text-blue-300 rounded-full text-xs">Responsive</span>
+                            <span class="px-2 py-0.5 bg-blue-900/30 text-blue-300 rounded-full text-xs">Plugins</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Skill Card 7 -->
+                <div x-data="{ hovered: false }" @mouseenter="hovered = true" @mouseleave="hovered = false"
+                    class="skill-card bg-gray-800/50 backdrop-blur-sm rounded-xl p-6 border border-gray-700 transition-all duration-500 transform hover:-translate-y-2 hover:shadow-xl">
+                    <div class="flex flex-col items-center text-center">
+                        <div class="relative mb-4">
+                            <div class="w-16 h-16 bg-blue-600/10 rounded-full flex items-center justify-center transition-all duration-500"
+                                :class="{'rotate-12 scale-110': hovered}">
+                                <i class="fab fa-git-alt text-orange-500 text-3xl"></i>
+                            </div>
+                        </div>
+                        <h3 class="text-lg font-semibold text-white mb-1">Git</h3>
+                        <p class="text-sm text-gray-300">Version control, GitHub</p>
+                        <div class="mt-3 flex flex-wrap justify-center gap-1">
+                            <span class="px-2 py-0.5 bg-blue-900/30 text-blue-300 rounded-full text-xs">Version
+                                Control</span>
+                            <span class="px-2 py-0.5 bg-blue-900/30 text-blue-300 rounded-full text-xs">GitHub</span>
+                            <span
+                                class="px-2 py-0.5 bg-blue-900/30 text-blue-300 rounded-full text-xs">Collaboration</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Skill Card 8 -->
+                <div x-data="{ hovered: false }" @mouseenter="hovered = true" @mouseleave="hovered = false"
+                    class="skill-card bg-gray-800/50 backdrop-blur-sm rounded-xl p-6 border border-gray-700 transition-all duration-500 transform hover:-translate-y-2 hover:shadow-xl">
+                    <div class="flex flex-col items-center text-center">
+                        <div class="relative mb-4">
+                            <div class="w-16 h-16 bg-blue-600/10 rounded-full flex items-center justify-center transition-all duration-500"
+                                :class="{'rotate-12 scale-110': hovered}">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg"
+                                    class="w-8 h-8" alt="Bootstrap" />
+                            </div>
+                        </div>
+                        <h3 class="text-lg font-semibold text-white mb-1">Boostrap</h3>
+                        <p class="text-sm text-gray-300">Components, Grid </p>
+                        <div class="mt-3 flex flex-wrap justify-center gap-1">
+                            <span
+                                class="px-2 py-0.5 bg-blue-900/30 text-blue-300 rounded-full text-xs">Components</span>
+                            <span class="px-2 py-0.5 bg-blue-900/30 text-blue-300 rounded-full text-xs">Grid</span>
+                            <span
+                                class="px-2 py-0.5 bg-blue-900/30 text-blue-300 rounded-full text-xs">Responsive</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Skill Card 9 -->
+                <div x-data="{ hovered: false }" @mouseenter="hovered = true" @mouseleave="hovered = false"
+                    class="skill-card bg-gray-800/50 backdrop-blur-sm rounded-xl p-6 border border-gray-700 transition-all duration-500 transform hover:-translate-y-2 hover:shadow-xl">
+                    <div class="flex flex-col items-center text-center">
+                        <div class="relative mb-4">
+                            <div class="w-16 h-16 bg-blue-600/10 rounded-full flex items-center justify-center transition-all duration-500"
+                                :class="{'rotate-12 scale-110': hovered}">
+                                <img src="https://cdn.worldvectorlogo.com/logos/alpinejs.svg"
+                                    class="w-8 h-8 object-contain" alt="Alpine.js Logo" />
+                            </div>
+                        </div>
+                        <h3 class="text-lg font-semibold text-white mb-1">Alpine.js</h3>
+                        <p class="text-sm text-gray-300">Reactive, Lightweight</p>
+                        <div class="mt-3 flex flex-wrap justify-center gap-1">
+                            <span
+                                class="px-2 py-0.5 bg-blue-900/30 text-blue-300 rounded-full text-xs">Reactivity</span>
+                            <span
+                                class="px-2 py-0.5 bg-blue-900/30 text-blue-300 rounded-full text-xs">Directives</span>
+                            <span
+                                class="px-2 py-0.5 bg-blue-900/30 text-blue-300 rounded-full text-xs">Lightweight</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Skill Card 10 -->
+                <div x-data="{ hovered: false }" @mouseenter="hovered = true" @mouseleave="hovered = false"
+                    class="skill-card bg-gray-800/50 backdrop-blur-sm rounded-xl p-6 border border-gray-700 transition-all duration-500 transform hover:-translate-y-2 hover:shadow-xl">
+                    <div class="flex flex-col items-center text-center">
+                        <div class="relative mb-4">
+                            <div class="w-16 h-16 bg-blue-600/10 rounded-full flex items-center justify-center transition-all duration-500"
+                                :class="{'rotate-12 scale-110': hovered}">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg"
+                                    class="w-8 h-8" alt="PHP Logo" />
+                            </div>
+                        </div>
+                        <h3 class="text-lg font-semibold text-white mb-1">PHP</h3>
+                        <p class="text-sm text-gray-300">Server-side, Backend</p>
+                        <div class="mt-3 flex flex-wrap justify-center gap-1">
+                            <span class="px-2 py-0.5 bg-blue-900/30 text-blue-300 rounded-full text-xs">Laravel</span>
+                            <span class="px-2 py-0.5 bg-blue-900/30 text-blue-300 rounded-full text-xs">MySQL</span>
+                            <span class="px-2 py-0.5 bg-blue-900/30 text-blue-300 rounded-full text-xs">API</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-16">
+                <h3 class="text-xl font-bold text-white text-center mb-8">Other Tools & Technologies</h3>
+
+                <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 max-w-5xl mx-auto px-4">
+                    <!-- Tool Item 1 -->
+                    <div x-data="{ hovered: false }" @mouseenter="hovered = true" @mouseleave="hovered = false"
+                        class="flex flex-col items-center justify-center bg-gray-800/50 backdrop-blur-sm rounded-lg p-4 border border-gray-700 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg hover:border-blue-500">
+                        <div class="w-12 h-12 flex items-center justify-center mb-2 transition-transform duration-300"
+                            :class="{'scale-110': hovered}">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg"
+                                class="w-8 h-8 object-contain" alt="VS Code" />
+                        </div>
+                        <span class="text-sm text-gray-300 text-center">VS Code</span>
+                    </div>
+
+                    <!-- Tool Item 2 -->
+                    <div x-data="{ hovered: false }" @mouseenter="hovered = true" @mouseleave="hovered = false"
+                        class="flex flex-col items-center justify-center bg-gray-800/50 backdrop-blur-sm rounded-lg p-4 border border-gray-700 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg hover:border-blue-500">
+                        <div class="w-12 h-12 flex items-center justify-center mb-2 transition-transform duration-300"
+                            :class="{'scale-110': hovered}">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sass/sass-original.svg"
+                                class="w-8 h-8 object-contain" alt="Sass" />
+                        </div>
+                        <span class="text-sm text-gray-300 text-center">Sass</span>
+                    </div>
+
+                    <!-- Tool Item 3 -->
+                    <div x-data="{ hovered: false }" @mouseenter="hovered = true" @mouseleave="hovered = false"
+                        class="flex flex-col items-center justify-center bg-gray-800/50 backdrop-blur-sm rounded-lg p-4 border border-gray-700 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg hover:border-blue-500">
+                        <div class="w-12 h-12 flex items-center justify-center mb-2 transition-transform duration-300"
+                            :class="{'scale-110': hovered}">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/npm/npm-original-wordmark.svg"
+                                class="w-8 h-8 object-contain" alt="npm" />
+                        </div>
+                        <span class="text-sm text-gray-300 text-center">npm</span>
+                    </div>
+
+                    <!-- Tool Item 4 -->
+                    <div x-data="{ hovered: false }" @mouseenter="hovered = true" @mouseleave="hovered = false"
+                        class="flex flex-col items-center justify-center bg-gray-800/50 backdrop-blur-sm rounded-lg p-4 border border-gray-700 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg hover:border-blue-500">
+                        <div class="w-12 h-12 flex items-center justify-center mb-2 transition-transform duration-300"
+                            :class="{'scale-110': hovered}">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg"
+                                class="w-8 h-8 object-contain" alt="Figma" />
+                        </div>
+                        <span class="text-sm text-gray-300 text-center">Figma</span>
+                    </div>
+
+                    <!-- Tool Item 5 -->
+                    <div x-data="{ hovered: false }" @mouseenter="hovered = true" @mouseleave="hovered = false"
+                        class="flex flex-col items-center justify-center bg-gray-800/50 backdrop-blur-sm rounded-lg p-4 border border-gray-700 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg hover:border-blue-500">
+                        <div class="w-12 h-12 flex items-center justify-center mb-2 transition-transform duration-300"
+                            :class="{'scale-110': hovered}">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/wordpress/wordpress-original.svg"
+                                class="w-8 h-8 object-contain" alt="WordPress" />
+                        </div>
+                        <span class="text-sm text-gray-300 text-center">WordPress</span>
+                    </div>
+
+                    <!-- Tool Item 6 -->
+                    <div x-data="{ hovered: false }" @mouseenter="hovered = true" @mouseleave="hovered = false"
+                        class="flex flex-col items-center justify-center bg-gray-800/50 backdrop-blur-sm rounded-lg p-4 border border-gray-700 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg hover:border-blue-500">
+                        <div class="w-12 h-12 flex items-center justify-center mb-2 transition-transform duration-300"
+                            :class="{'scale-110': hovered}">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/moodle/moodle-original.svg"
+                                class="w-8 h-8 object-contain" alt="Moodle" />
+                        </div>
+                        <span class="text-sm text-gray-300 text-center">Moodle</span>
+                    </div>
+                </div>
+            </div>
+    </section>
+
     <script src="assets/main.js"></script>
 </body>
 
