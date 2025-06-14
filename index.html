@@ -1100,6 +1100,291 @@
             </div>
     </section>
 
+    <!-- Projects Section -->
+    <section id="projects" class="relative py-20 bg-gray-900 overflow-hidden" x-data="{ activeTab: 'personal' }">
+        <!-- Decorative elements -->
+        <div class="absolute inset-0 opacity-10">
+            <div class="absolute top-20 left-10 w-40 h-40 bg-indigo-600 rounded-full filter blur-3xl opacity-20"></div>
+            <div class="absolute bottom-10 right-10 w-60 h-60 bg-blue-600 rounded-full filter blur-3xl opacity-20">
+            </div>
+            <div class="absolute top-1/3 right-1/4 w-80 h-80 bg-purple-600 rounded-full filter blur-3xl opacity-10">
+            </div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
+                    My <span class="text-blue-400">Projects</span>
+                </h2>
+                <div class="w-20 h-1 bg-gradient-to-r from-blue-600 to-blue-800 mx-auto mb-6"></div>
+                <p class="text-lg text-gray-300 max-w-3xl mx-auto">
+                    A work that I exhibit, from personal experiments to bisnis
+                </p>
+            </div>
+
+            <!-- Project Tabs -->
+            <div class="flex justify-center mb-12">
+                <div class="inline-flex rounded-full bg-gray-800 p-1 border border-gray-700 shadow-inner">
+                    <button @click="activeTab = 'personal'"
+                        :class="{ 'bg-gradient-to-r from-blue-600 to-blue-800 text-white': activeTab === 'personal', 'text-gray-300 hover:text-white': activeTab !== 'personal' }"
+                        class="px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 focus:outline-none">
+                        <i class="fas fa-user mr-2"></i> Personal Projects
+                    </button>
+                    <button @click="activeTab = 'business'"
+                        :class="{ 'bg-gradient-to-r from-blue-600 to-blue-800 text-white': activeTab === 'business', 'text-gray-300 hover:text-white': activeTab !== 'business' }"
+                        class="px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 focus:outline-none">
+                        <i class="fas fa-briefcase mr-2"></i> Business Projects
+                    </button>
+                </div>
+            </div>
+
+            <!-- Personal Projects -->
+            <div x-show="activeTab === 'personal'" x-transition>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Project 1 -->
+                    <div x-data="{ hovered: false }" @mouseenter="hovered = true" @mouseleave="hovered = false"
+                        class="project-card bg-gray-800/50 backdrop-blur-sm rounded-xl overflow-hidden border border-gray-700 shadow-lg transition-all duration-500 transform hover:-translate-y-2 hover:shadow-xl">
+                        <div class="relative overflow-hidden h-48">
+                            <img src="assets/image/portofolio/personal/landingpage.png" alt="Landing Page Tamplate"
+                                class="w-full h-full object-cover transition-transform duration-500"
+                                :class="{ 'scale-105': hovered }">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 transition-opacity duration-500"
+                                :class="{ 'opacity-100': hovered }">
+                                <div class="absolute bottom-0 left-0 p-6 translate-y-4 transition-transform duration-500"
+                                    :class="{ 'translate-y-0': hovered }">
+                                    <div class="flex flex-wrap gap-2 mb-2">
+                                        <span
+                                            class="px-2 py-1 bg-blue-900/50 text-blue-300 rounded-full text-xs">HTML5</span>
+                                        <span
+                                            class="px-2 py-1 bg-blue-900/50 text-blue-300 rounded-full text-xs">CSS3</span>
+                                        <span
+                                            class="px-2 py-1 bg-blue-900/50 text-blue-300 rounded-full text-xs">JavaScript</span>
+                                        <span
+                                            class="px-2 py-1 bg-blue-900/50 text-blue-300 rounded-full text-xs">Tailwind</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-white mb-2">Landing Page Tamplate</h3>
+                            <p class="text-gray-300 text-sm mb-4">This project is a project that I created as a landing
+                                page template with an online health class theme.</p>
+                            <div class="flex space-x-3">
+                                <a href="https://mamenhd.github.io/Landing-Page-Kesehatan/" target="_blank"
+                                    class="text-sm font-medium text-blue-400 hover:text-blue-300 transition-colors duration-300 flex items-center">
+                                    <i class="fas fa-external-link-alt mr-1"></i> Live Demo
+                                </a>
+                                <a href="https://github.com/MamenHD/Landing-Page-Kesehatan" target="_blank"
+                                    class="text-sm font-medium text-gray-400 hover:text-white transition-colors duration-300 flex items-center">
+                                    <i class="fab fa-github mr-1"></i> Source Code
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 2 -->
+                    <div x-data="{ hovered: false }" @mouseenter="hovered = true" @mouseleave="hovered = false"
+                        class="project-card bg-gray-800/50 backdrop-blur-sm rounded-xl overflow-hidden border border-gray-700 shadow-lg transition-all duration-500 transform hover:-translate-y-2 hover:shadow-xl">
+                        <div class="relative overflow-hidden h-48">
+                            <img src="assets/image/portofolio/personal/persona-3.png" alt="Persona 3"
+                                class="w-full h-full object-cover transition-transform duration-500"
+                                :class="{ 'scale-105': hovered }">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 transition-opacity duration-500"
+                                :class="{ 'opacity-100': hovered }">
+                                <div class="absolute bottom-0 left-0 p-6 translate-y-4 transition-transform duration-500"
+                                    :class="{ 'translate-y-0': hovered }">
+                                    <div class="flex flex-wrap gap-2 mb-2">
+                                        <span
+                                            class="px-2 py-1 bg-blue-900/50 text-blue-300 rounded-full text-xs">HTML5</span>
+                                        <span
+                                            class="px-2 py-1 bg-blue-900/50 text-blue-300 rounded-full text-xs">CSS3</span>
+                                        <span
+                                            class="px-2 py-1 bg-blue-900/50 text-blue-300 rounded-full text-xs">JavaScript</span>
+                                        <span
+                                            class="px-2 py-1 bg-blue-900/50 text-blue-300 rounded-full text-xs">Tailwind</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-white mb-2">Persona 3 Reload</h3>
+                            <p class="text-gray-300 text-sm mb-4">
+                                This website is my inspiration from the original website of persona 3 reload jp version.
+                            </p>
+                            <div class="flex space-x-3">
+                                <a href="https://mamenhd.github.io/Persona-3-Reload-Sederhana/" target="_blank"
+                                    class="text-sm font-medium text-blue-400 hover:text-blue-300 transition-colors duration-300 flex items-center">
+                                    <i class="fas fa-external-link-alt mr-1"></i> Live Demo
+                                </a>
+                                <a href="https://github.com/MamenHD/Persona-3-Reload-Sederhana" target="_blank"
+                                    class="text-sm font-medium text-gray-400 hover:text-white transition-colors duration-300 flex items-center">
+                                    <i class="fab fa-github mr-1"></i> Source Code
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 3 -->
+                    <div x-data="{ hovered: false }" @mouseenter="hovered = true" @mouseleave="hovered = false"
+                        class="project-card bg-gray-800/50 backdrop-blur-sm rounded-xl overflow-hidden border border-gray-700 shadow-lg transition-all duration-500 transform hover:-translate-y-2 hover:shadow-xl">
+                        <div class="relative overflow-hidden h-48">
+                            <img src="assets/image/portofolio/personal/warung.png" alt="Warung Nasi"
+                                class="w-full h-full object-cover transition-transform duration-500"
+                                :class="{ 'scale-105': hovered }">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 transition-opacity duration-500"
+                                :class="{ 'opacity-100': hovered }">
+                                <div class="absolute bottom-0 left-0 p-6 translate-y-4 transition-transform duration-500"
+                                    :class="{ 'translate-y-0': hovered }">
+                                    <div class="flex flex-wrap gap-2 mb-2">
+                                        <span
+                                            class="px-2 py-1 bg-blue-900/50 text-blue-300 rounded-full text-xs">HTML5</span>
+                                        <span
+                                            class="px-2 py-1 bg-blue-900/50 text-blue-300 rounded-full text-xs">CSS3</span>
+                                        <span
+                                            class="px-2 py-1 bg-blue-900/50 text-blue-300 rounded-full text-xs">JavaScript</span>
+                                        <span
+                                            class="px-2 py-1 bg-blue-900/50 text-blue-300 rounded-full text-xs">Tailwind</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-white mb-2">Warung Mamen</h3>
+                            <p class="text-gray-300 text-sm mb-4">
+                                I created this website with the aim of making my mother's merchandise menu available to
+                                be viewed online via the website.</p>
+                            <div class="flex space-x-3">
+                                <a href="https://mamenhd.github.io/Warung-Mamen/" target="_blank"
+                                    class="text-sm font-medium text-blue-400 hover:text-blue-300 transition-colors duration-300 flex items-center">
+                                    <i class="fas fa-external-link-alt mr-1"></i> Live Demo
+                                </a>
+                                <a href="https://github.com/MamenHD/Warung-Mamen" target="_blank"
+                                    class="text-sm font-medium text-gray-400 hover:text-white transition-colors duration-300 flex items-center">
+                                    <i class="fab fa-github mr-1"></i> Source Code
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Business Projects -->
+            <div x-show="activeTab === 'business'" x-transition>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Project 1 -->
+                    <div x-data="{ hovered: false }" @mouseenter="hovered = true" @mouseleave="hovered = false"
+                        class="project-card bg-gray-800/50 backdrop-blur-sm rounded-xl overflow-hidden border border-gray-700 shadow-lg transition-all duration-500 transform hover:-translate-y-2 hover:shadow-xl">
+                        <div class="relative overflow-hidden h-48">
+                            <img src="assets/image/portofolio/bisnis/rpl.png" alt="RPL"
+                                class="w-full h-full object-cover transition-transform duration-500"
+                                :class="{ 'scale-105': hovered }">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 transition-opacity duration-500"
+                                :class="{ 'opacity-100': hovered }">
+                                <div class="absolute bottom-0 left-0 p-6 translate-y-4 transition-transform duration-500"
+                                    :class="{ 'translate-y-0': hovered }">
+                                    <div class="flex flex-wrap gap-2 mb-2">
+                                        <span
+                                            class="px-2 py-1 bg-blue-900/50 text-blue-300 rounded-full text-xs">Wordpress</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-white mb-2">Wbsite RPL Taman Siswa 2</h3>
+                            <p class="text-gray-300 text-sm mb-4">I helped to develop RPL website and maintain RPL
+                                website for some time.</p>
+                            <div class="flex space-x-3">
+                                <a href="https://rpltamansiswa.com/" target="_blank"
+                                    class="text-sm font-medium text-blue-400 hover:text-blue-300 transition-colors duration-300 flex items-center">
+                                    <i class="fas fa-external-link-alt mr-1"></i> Live Demo
+                                </a>
+                                <span class="text-sm font-medium text-gray-500 flex items-center">
+                                    <i class="fas fa-lock mr-1"></i> Private Code
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 2 -->
+                    <div x-data="{ hovered: false }" @mouseenter="hovered = true" @mouseleave="hovered = false"
+                        class="project-card bg-gray-800/50 backdrop-blur-sm rounded-xl overflow-hidden border border-gray-700 shadow-lg transition-all duration-500 transform hover:-translate-y-2 hover:shadow-xl">
+                        <div class="relative overflow-hidden h-48">
+                            <img src="assets/image/portofolio/bisnis/sivoki.png" alt="Sivoki"
+                                class="w-full h-full object-cover transition-transform duration-500"
+                                :class="{ 'scale-105': hovered }">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 transition-opacity duration-500"
+                                :class="{ 'opacity-100': hovered }">
+                                <div class="absolute bottom-0 left-0 p-6 translate-y-4 transition-transform duration-500"
+                                    :class="{ 'translate-y-0': hovered }">
+                                    <div class="flex flex-wrap gap-2 mb-2">
+                                        <span
+                                            class="px-2 py-1 bg-blue-900/50 text-blue-300 rounded-full text-xs">Moodle</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-white mb-2">Sivoki Mobile</h3>
+                            <p class="text-gray-300 text-sm mb-4">At Miti Ed Care, I was assigned to create an LMS
+                                website using Moodle.</p>
+                            <div class="flex space-x-3">
+                                <a href="https://sivokimobile.id" target="_blank"
+                                    class="text-sm font-medium text-blue-400 hover:text-blue-300 transition-colors duration-300 flex items-center">
+                                    <i class="fas fa-external-link-alt mr-1"></i> Live Demo
+                                </a>
+                                <span class="text-sm font-medium text-gray-500 flex items-center">
+                                    <i class="fas fa-lock mr-1"></i> Private Code
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 3 -->
+                    <div x-data="{ hovered: false }" @mouseenter="hovered = true" @mouseleave="hovered = false"
+                        class="project-card bg-gray-800/50 backdrop-blur-sm rounded-xl overflow-hidden border border-gray-700 shadow-lg transition-all duration-500 transform hover:-translate-y-2 hover:shadow-xl">
+                        <div class="relative overflow-hidden h-48">
+                            <img src="assets/image/portofolio/bisnis/sinersi.png" alt="Sinersi"
+                                class="w-full h-full object-cover transition-transform duration-500"
+                                :class="{ 'scale-105': hovered }">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 transition-opacity duration-500"
+                                :class="{ 'opacity-100': hovered }">
+                                <div class="absolute bottom-0 left-0 p-6 translate-y-4 transition-transform duration-500"
+                                    :class="{ 'translate-y-0': hovered }">
+                                    <div class="flex flex-wrap gap-2 mb-2">
+                                        <span
+                                            class="px-2 py-1 bg-blue-900/50 text-blue-300 rounded-full text-xs">Moodle</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-white mb-2">Sinersi Mobile</h3>
+                            <p class="text-gray-300 text-sm mb-4">At Miti Ed Care, I was assigned to create an LMS
+                                website using Moodle.</p>
+                            <div class="flex space-x-3">
+                                <a href="https://sinersimobile.id" target="_blank"
+                                    class="text-sm font-medium text-blue-400 hover:text-blue-300 transition-colors duration-300 flex items-center">
+                                    <i class="fas fa-external-link-alt mr-1"></i> Live Demo
+                                </a>
+                                <span class="text-sm font-medium text-gray-500 flex items-center">
+                                    <i class="fas fa-lock mr-1"></i> Private Project
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- View More Button -->
+            <div class="text-center mt-12">
+                <a href="https://github.com/MamenHD?tab=repositories"
+                    class="inline-flex items-center px-6 py-3 border border-blue-600 text-blue-400 rounded-full font-medium hover:bg-blue-600 hover:text-white hover:border-transparent transition-all duration-300 transform hover:scale-105">
+                    <i class="fas fa-eye mr-2"></i> View All Projects
+                </a>
+            </div>
+        </div>
+    </section>
+
     <script src="assets/main.js"></script>
 </body>
 
