@@ -39,10 +39,6 @@ This portfolio represents my digital journey and passion for web development. Ev
 - Discussions about cutting-edge tech  
 - Work opportunities  
 
-📫 **Reach me at:**  
-[![Email](https://img.shields.io/badge/Email-D14836?style=flat&logo=gmail&logoColor=white)](mailto:indranurmr206@gmail.com)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=flat&logo=linkedin&logoColor=white)](in/indra-nur-m-r-0390b22a7)
-
 ⭐ **If this portfolio inspires you,** feel free to star this repo!  
 
 *"Don't forget to git push"*  
